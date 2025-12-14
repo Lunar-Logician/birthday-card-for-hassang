@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, [Friend's Name]!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Global Styles --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #030303; /* Light background */
+    font-family: sans-serif;
+    color: #333;
+}
+
+.card-container {
+    text-align: center;
+    transform: translateY(0); /* For subtle cake rising animation */
+    animation: rise 2s ease-out 1s forwards;
+}
+
+.message {
+    font-size: 3em;
+    color: #e91e63; /* Pink color for celebration */
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in 3s forwards;
+}
+
+.sub-message {
+    font-size: 1.2em;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in 3.5s forwards;
+}
+
+/* --- Cake Structure --- */
+.cake {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 50px auto 0;
+}
+
+.base {
+    position: absolute;
+    width: 350px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 50%;
+    left: -25px;
+    bottom: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.layer {
+    position: absolute;
+    width: 300px;
+    background: #fdf6e3; /* Cake color */
+    border-radius: 50% / 10%; /* Makes the top edge look round */
+    box-shadow: inset 0 -3px #ffe066; /* Inner shadow for frosting detail */
+    transform-origin: bottom;
+    opacity: 0;
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+.layer-1 {
+    height: 60px;
+    bottom: 20px;
+    background: #f48fb1; /* Pink frosting */
+    animation-delay: 1.5s;
+}
+
+.layer-2 {
+    height: 60px;
+    bottom: 80px;
+    background: #9575cd; /* Purple frosting */
+    animation-delay: 1.7s;
+}
+
+.layer-3 {
+    height: 60px;
+    bottom: 140px;
+    background: #4db6ac; /* Mint frosting */
+    animation-delay: 1.9s;
+}
+
+/* --- Candles and Flames --- */
+.candle-group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background: #fff;
+    border-radius: 3px;
+    bottom: 200px; /* Position above the top layer */
+    opacity: 0;
+    animation: lightUp 0.5s ease-in 2.5s forwards;
+}
+
+/* Positioning the individual candles */
+.candle:nth-child(1) { left: 80px; }
+.candle:nth-child(2) { left: 145px; }
+.candle:nth-child(3) { left: 210px; }
+
+/* The Flickering Flame */
+.flame-group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+}
+
+.flame {
+    position: absolute;
+    width: 6px;
+    height: 15px;
+    background: orange;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    bottom: 240px; /* Position above candles */
+    box-shadow: 0 0 10px orange, 0 0 20px yellow;
+    animation: flicker 0.2s infinite alternate, lightUp 0.5s ease-in 2.5s forwards;
+}
+
+/* Positioning the individual flames */
+.flame:nth-child(1) { left: 82px; }
+.flame:nth-child(2) { left: 147px; }
+.flame:nth-child(3) { left: 212px; }
+
+/* --- CSS Animations --- */
+/* Cake layers slide in */
+@keyframes slideIn {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Candles appear and light up */
+@keyframes lightUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Flame flicker effect */
+@keyframes flicker {
+    0% { transform: scaleY(1); box-shadow: 0 0 10px orange, 0 0 20px yellow; }
+    50% { transform: scaleY(0.8); box-shadow: 0 0 8px darkorange, 0 0 18px #ffcc00; }
+    100% { transform: scaleY(1.1); box-shadow: 0 0 12px orange, 0 0 22px yellow; }
+}
+
+/* Final text message fade in */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <h1 class="message">Happy Birthday, Brother!</h1>
+        <p class="sub-message">From one developer to another—hope your code runs bug-free Everyday😊!</p>
+        
+        <div class="cake">
+            <div class="flame-group">
+                <div class="flame"></div>
+                <div class="flame"></div>
+                <div class="flame"></div>
+            </div>
+            
+            <div class="candle-group">
+                <div class="candle"></div>
+                <div class="candle"></div>
+                <div class="candle"></div>
+            </div>
+            
+            <div class="layer layer-1"></div>
+            <div class="layer layer-2"></div>
+            <div class="layer layer-3"></div>
+            
+            <div class="base"></div>
+        </div>
+    </div>
+    <script>
+        console.log("%c🎉 Happy Birthday! Wishing you a year of clean code and successful deploys! 🚀", "font-size: 18px; color: #4db6ac;");
+    </script>
+</body>
+</html>
